@@ -1,0 +1,199 @@
+module code(a,b,prod);
+    input[15:0] a,b;
+    output[31:0] prod;
+wire [8:0] c0,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15;
+wire [8:0] sum0,sum1,sum2,sum3,sum4,sum5,sum6,sum7,sum8,sum9,sum10,sum11,sum12,sum13,sum14,sum15;
+genvar k;
+generate
+    begin
+       assign c0[0]=1'b0;
+       for(k=0;k<=15;k=k+1)
+        begin
+            if(k<15)
+                fa f1(c0[k+1],sum0[k],a[k]&b[1],a[k+1]&b[0],c0[k]);
+            else if(k==15)
+                fa f2(c0[k+1],sum0[k],a[k]&b[1],0,c0[k]);
+        end
+        assign sum0[16]=c0[16];
+        assign prod[1]=sum0[0];
+        
+        assign c1[0]=c0[0];
+        
+        
+        
+        for(k=0;k<=15;k=k+1)
+            begin
+                fa f3(c1[k+1],sum1[k],a[k]&b[2],sum0[k+1],c1[k]);
+            end
+        assign sum1[16]=c1[16];
+        assign prod[2]=sum1[0];
+        
+        assign c2[0]=0;
+        
+        
+        
+        
+        for(k=0;k<=15;k=k+1)
+            begin
+                fa f4(c2[k+1],sum2[k],a[k]&b[3],sum1[k+1],c2[k]);
+            end
+        assign sum2[16]=c2[16];
+        assign prod[3]=sum2[0];
+        
+        assign c3[0]=0;
+        
+        
+        
+        for(k=0;k<=15;k=k+1)
+            begin
+                fa f5(c3[k+1],sum3[k],a[k]&b[4],sum2[k+1],c3[k]);
+            end
+        assign sum3[16]=c3[16];
+        assign prod[4]=sum3[0];
+        
+        assign c4[0]=0;
+        
+        
+        
+        for(k=0;k<=15;k=k+1)
+            begin
+                fa f6(c4[k+1],sum4[k],a[k]&b[5],sum3[k+1],c4[k]);
+            end
+        assign sum4[16]=c4[16];
+        assign prod[5]=sum4[0];
+        
+        assign c5[0]=0;
+        
+        
+        
+        for(k=0;k<=15;k=k+1)
+            begin
+                fa f7(c5[k+1],sum5[k],a[k]&b[6],sum4[k+1],c5[k]);
+            end
+        assign sum5[16]=c5[16];
+        assign prod[6]=sum5[0];
+        assign c6[0]=0;
+        
+        
+        
+        for(k=0;k<=15;k=k+1)
+            begin
+                fa f8(c6[k+1],sum6[k],a[k]&b[7],sum5[k+1],c6[k]);
+            end
+        assign sum6[16]=c6[16];
+        assign prod[7]=sum6[0];
+        assign c7[0]=0;
+        
+        
+        for(k=0;k<=15;k=k+1)
+            begin
+                fa f9(c7[k+1],sum7[k],a[k]&b[8],sum6[k+1],c7[k]);
+            end
+        assign sum7[16]=c7[16];
+        assign prod[8]=sum7[0];
+        assign c8[0]=0;
+        
+        
+         for(k=0;k<=15;k=k+1)
+            begin
+                fa f10(c8[k+1],sum8[k],a[k]&b[9],sum7[k+1],c8[k]);
+            end
+        assign sum8[16]=c8[16];
+        assign prod[9]=sum8[0];
+        assign c9[0]=0;
+        
+        
+        
+         for(k=0;k<=15;k=k+1)
+            begin
+                fa f11(c9[k+1],sum9[k],a[k]&b[10],sum8[k+1],c9[k]);
+            end
+        assign sum9[16]=c9[16];
+        assign prod[10]=sum9[0];
+        assign c10[0]=0;
+        
+        
+        
+         for(k=0;k<=15;k=k+1)
+            begin
+                fa f12(c10[k+1],sum10[k],a[k]&b[11],sum9[k+1],c10[k]);
+            end
+        assign sum10[16]=c10[16];
+        assign prod[11]=sum10[0];
+        assign c11[0]=0;
+        
+        
+        
+         for(k=0;k<=15;k=k+1)
+            begin
+                fa f13(c11[k+1],sum11[k],a[k]&b[12],sum10[k+1],c11[k]);
+            end
+        assign sum11[16]=c11[16];
+        assign prod[12]=sum11[0];
+        assign c12[0]=0;
+        
+        
+        
+         for(k=0;k<=15;k=k+1)
+            begin
+                fa f14(c12[k+1],sum12[k],a[k]&b[13],sum11[k+1],c12[k]);
+            end
+        assign sum12[16]=c12[16];
+        assign prod[13]=sum12[0];
+        assign c13[0]=0;
+        
+        
+        
+        for(k=0;k<=15;k=k+1)
+            begin
+                fa f15(c13[k+1],sum13[k],a[k]&b[14],sum12[k+1],c13[k]);
+            end
+        assign sum13[16]=c13[16];
+        assign prod[14]=sum13[0];
+        assign c14[0]=0;
+        
+        
+        
+        
+        for(k=0;k<=15;k=k+1)
+            begin
+                fa f16(c14[k+1],sum14[k],a[k]&b[15],sum13[k+1],c14[k]);
+            end
+        assign sum14[16]=c14[16];
+        assign prod[15]=sum14[0];
+        assign c15[0]=0;
+        
+        
+        assign prod[16]=sum14[1];
+        assign prod[17]=sum14[2];
+        assign prod[18]=sum14[3];
+        assign prod[19]=sum14[4];
+        assign prod[20]=sum14[5];
+       assign prod[21]=sum14[6];
+        assign prod[22]=sum14[7];
+        assign prod[23]=sum14[8];
+         assign prod[24]=sum14[9];
+        assign prod[25]=sum14[10];
+        assign prod[26]=sum14[11]; 
+        assign prod[27]=sum14[12];
+        assign prod[28]=sum14[13];
+        assign prod[29]=sum14[14];
+         assign prod[30]=sum14[15];
+        assign prod[31]=sum14[16];
+        
+    end
+endgenerate
+assign prod[0]=a[0]&b[0];
+endmodule
+
+module fa(output carry_out , output sum,
+input x, input y ,input carry_in);
+wire prop, gen , pr_cin;
+xor x1 (prop,x,y);
+xor x2 (sum,prop,carry_in);
+and a1(pr_cin,prop,carry_in);
+and a2(gen,x,y);
+or o1(carry_out,gen,pr_cin);
+
+
+endmodule
